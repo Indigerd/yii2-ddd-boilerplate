@@ -1,0 +1,44 @@
+{
+  "name": "indigerd/yii2-boilerplate",
+  "description": "DDD boilerplate for Yii2 framework",
+  "keywords": ["boilerplate", "ddd", "yii2", "repository"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexander Stepanenko",
+      "email": "alex.stepanenko@gmail.com"
+    }
+  ],
+  "repositories":[
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "indigerd/yii2-repository": "*",
+    "indigerd/healthchecks": "dev-master@dev",
+    "indigerd/yii2-migration-aware-module": "*",
+    "indigerd/yii2-oauth2-auth-filter": "*",
+    "indigerd/yii2-rest": "*",
+    "indigerd/yii2-scenarios": "*",
+    "yiisoft/yii2": "^2.0.13"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "Domain\\": "src/Domain",
+      "Infrastructure\\": "src/Infrastructure",
+      "App\\": "src/App"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\": "tests"
+    }
+  }
+}
