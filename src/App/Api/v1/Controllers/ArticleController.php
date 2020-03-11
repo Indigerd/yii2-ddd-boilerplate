@@ -50,6 +50,14 @@ class ArticleController extends Controller
         parent::__construct($id, $module, $request, $response, $config);
     }
 
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['access']['except'][] = 'index';
+        $behaviors['access']['except'][] = 'view';
+        return $behaviors;
+    }
+
     /**
      * @param string $id
      * @return Article

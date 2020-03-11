@@ -24,4 +24,12 @@ class Controller extends BaseController
         $this->response = $response;
         parent::__construct($id, $module, $config);
     }
+
+    public function actions()
+    {
+        $actions = parent::actions();
+        return [
+            'options' => $actions['options'],
+        ];
+    }
 }

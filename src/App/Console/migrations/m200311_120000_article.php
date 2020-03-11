@@ -10,7 +10,7 @@ class m200311_120000_article extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'content' => $this->text(),
-            'category_id' => $this->integer()->notNull(),
+            'categoryId' => $this->integer()->notNull(),
         ]);
 
         $this->createTable('{{%article_categories}}', [
@@ -27,11 +27,11 @@ class m200311_120000_article extends Migration
             'name' => 'Category2'
         ]);
         $this->insert('{{%articles}}', [
-            'category_id' => 1,
+            'categoryId' => 1,
             'title' => 'Article1'
         ]);
         $this->insert('{{%articles}}', [
-            'category_id' => 1,
+            'categoryId' => 1,
             'title' => 'Article2'
         ]);
     }

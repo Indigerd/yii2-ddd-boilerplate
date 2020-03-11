@@ -2,6 +2,13 @@
 
 Yii::setAlias('@api', realpath(__DIR__ . '/../../Api'));
 
+Yii::$container->set(
+    yii\web\Application::class,
+    function () {
+        return Yii::$app;
+    }
+);
+
 Yii::$container->set(Infrastructure\Http\Request::class);
 Yii::$container->set(Infrastructure\Http\Response::class);
 
@@ -23,7 +30,7 @@ Yii::$container->set(
 );
 
 Yii::$container->set(
-    'Infrastructure\Repository\ArticleRepository',
+    'Domain\Repository\ArticleRepositoryInterface',
     function () {
         return new \Infrastructure\Repository\ArticleRepository(
             Yii::$container->get('Infrastructure\Repository\TableGateway\ArticleTableGateway'),
