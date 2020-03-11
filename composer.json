@@ -24,6 +24,7 @@
     "indigerd/yii2-oauth2-auth-filter": "*",
     "indigerd/yii2-rest": "*",
     "indigerd/yii2-scenarios": "*",
+    "vlucas/phpdotenv": "^2.0",
     "yiisoft/yii2": "^2.0.13"
   },
   "require-dev": {
