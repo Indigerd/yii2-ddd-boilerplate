@@ -42,8 +42,7 @@ class ArticleController extends Controller
     {
         try {
             $article = $this->service->findArticleById($id);
-            $this->render('view', ['article' => $article]);
-            return $this->service->findArticleById($id);
+            return $this->render('view', ['article' => $article]);
         } catch (ArticleNotFoundException $e) {
             throw new NotFoundHttpException();
         }

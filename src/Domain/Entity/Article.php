@@ -34,7 +34,7 @@ class Article implements IdentityInterface
         $this->title = $title;
     }
 
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->content;
     }

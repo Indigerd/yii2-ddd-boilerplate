@@ -20,6 +20,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
             ])?>
         <?php endif; ?>
 
+        <br/><br/>
 
         <?php echo $content ?>
 

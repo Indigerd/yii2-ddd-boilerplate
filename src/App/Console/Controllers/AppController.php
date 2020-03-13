@@ -11,7 +11,6 @@ class AppController extends Controller
     public $writablePaths = [
         '@console/runtime',
         '@api/runtime',
-        '@api/web/assets',
         '@frontend/runtime',
         '@frontend/web/assets',
     ];

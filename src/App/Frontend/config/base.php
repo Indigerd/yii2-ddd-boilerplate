@@ -32,6 +32,25 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error'
         ],
+        'request' => [
+            'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
+        ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@frontend/i18n',
+                ],
+                '*' => [
+                    'class' => yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@frontend/i18n',
+                    'fileMap' => [
+                        'common' => 'common.php',
+                        'frontend' => 'frontend.php',
+                    ],
+                ],
+            ],
+        ],
     ],
 ];
 

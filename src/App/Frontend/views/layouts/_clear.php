@@ -3,7 +3,7 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-\App\Asset\FrontendAsset::register($this);
+App\Frontend\Asset\FrontendAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

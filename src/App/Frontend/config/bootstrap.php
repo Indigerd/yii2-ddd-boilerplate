@@ -1,6 +1,6 @@
 <?php
 
-Yii::setAlias('@frontend', realpath(__DIR__ . '/../../Api'));
+Yii::setAlias('@frontend', realpath(__DIR__ . '/../../Frontend'));
 
 Yii::$container->set(
     yii\web\Application::class,

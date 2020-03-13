@@ -2,7 +2,7 @@
 return [
     'id' => 'console',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'Bookimed\App\Console\Controllers',
+    'controllerNamespace' => 'App\Console\Controllers',
     'controllerMap' => [
         'migrate' => [
             'class' => yii\console\controllers\MigrateController::class,

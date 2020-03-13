@@ -34,6 +34,11 @@ class ArticleService
     public function findAll(Request $request): DataProvider
     {
         $filteredParams = $this->requestFilter->filterQuery($request, 'index');
-        return $this->dataProviderFactory->create($this->repository, $filteredParams, ['category']);
+        return $this->dataProviderFactory->create(
+            $this->repository,
+            $filteredParams,
+            ['category'],
+            ['id']
+        );
     }
 }
