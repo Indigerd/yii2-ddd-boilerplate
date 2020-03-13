@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 return [
     'id' => 'api',
     'basePath' => dirname(__DIR__),
