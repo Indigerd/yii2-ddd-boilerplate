@@ -28,6 +28,7 @@ class IdentityCollectionTest extends TestCase
         $this->assertEquals(2, \sizeof($this->collection));
         $this->collection->remove($entity1);
         $this->assertEquals(1, \sizeof($this->collection));
-        $this->assertEquals($entity2, \array_pop(\reset($this->collection)));
+        $m = \reset($this->collection);
+        $this->assertEquals($entity2, \array_pop($m));
     }
 }
