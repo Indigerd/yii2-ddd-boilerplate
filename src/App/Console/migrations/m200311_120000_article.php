@@ -18,6 +18,12 @@ class m200311_120000_article extends Migration
             'name' => $this->string()->notNull(),
         ]);
 
+        $this->createTable('{{%article_comments}}', [
+            'id' => $this->primaryKey(),
+            'articleId' => $this->integer()->notNull(),
+            'content' => $this->string()->notNull(),
+        ]);
+
         $this->insert('{{%article_categories}}', [
             'id' => 1,
             'name' => 'Category1'
@@ -28,16 +34,41 @@ class m200311_120000_article extends Migration
         ]);
         $this->insert('{{%articles}}', [
             'categoryId' => 1,
-            'title' => 'Article1'
+            'title' => 'Article11',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur.'
         ]);
         $this->insert('{{%articles}}', [
             'categoryId' => 1,
-            'title' => 'Article2'
+            'title' => 'Article12',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur.'
+        ]);
+        $this->insert('{{%articles}}', [
+            'categoryId' => 2,
+            'title' => 'Article21',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur.'
+        ]);
+        $this->insert('{{%articles}}', [
+            'categoryId' => 2,
+            'title' => 'Article22',
+            'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur.'
         ]);
     }
 
     public function safeDown()
     {
+        $this->dropTable('{{%article_comments}}');
         $this->dropTable('{{%articles}}');
         $this->dropTable('{{%article_categories}}');
     }

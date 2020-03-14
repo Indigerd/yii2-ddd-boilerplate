@@ -8,5 +8,6 @@ return [
         // Articles
         ['pattern' => 'article/index', 'route' => 'article/index'],
         ['pattern' => 'article/<id>', 'route' => 'article/view'],
+        ['pattern' => 'article/<articleId>/comments', 'route' => 'article/create-comment'],
     ]
 ];

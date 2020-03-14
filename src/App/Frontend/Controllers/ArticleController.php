@@ -2,6 +2,8 @@
 
 namespace App\Frontend\Controllers;
 
+use App\Frontend\Service\ArticleCommentService;
+use indigerd\scenarios\exception\RequestValidateException;
 use yii\base\Module;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -18,17 +20,21 @@ class ArticleController extends Controller
 
     protected $service;
 
+    protected $commentService;
+
     public function __construct(
         string $id,
         Module $module,
         Request $request,
         Response $response,
         ArticleService $service,
+        ArticleCommentService $commentService,
         array $config = []
     ) {
         $this->request = $request;
         $this->response = $response;
         $this->service = $service;
+        $this->commentService = $commentService;
         parent::__construct($id, $module, $config);
     }
 
@@ -42,9 +48,23 @@ class ArticleController extends Controller
     {
         try {
             $article = $this->service->findArticleById($id);
-            return $this->render('view', ['article' => $article]);
+            $comments = $this->commentService->findArticleCommentsByArticleId($id);
+            return $this->render('view', ['article' => $article, 'comments' => $comments, 'commentErrors' => []]);
         } catch (ArticleNotFoundException $e) {
             throw new NotFoundHttpException();
         }
+    }
+
+    public function actionCreateComment($articleId)
+    {
+        $article = $this->service->findArticleById($articleId);
+        try {
+            $commentErrors = [];
+            $this->commentService->create($this->request);
+        } catch (RequestValidateException $e) {
+            $commentErrors = $e->getErrorCollection();
+        }
+        $comments = $this->commentService->findArticleCommentsByArticleId($articleId);
+        return $this->render('view', ['article' => $article, 'comments' => $comments, 'commentErrors' => $commentErrors]);
     }
 }

@@ -40,3 +40,25 @@ Yii::$container->set(
         );
     }
 );
+
+Yii::$container->set(
+    'Infrastructure\Repository\TableGateway\ArticleCommentTableGateway',
+    function () {
+        return new \Infrastructure\Repository\TableGateway\ArticleCommentTableGateway(
+            Yii::$app->db,
+            new \Indigerd\Repository\Query\SqlQueryFactory(),
+            'article_comments'
+        );
+    }
+);
+
+Yii::$container->set(
+    'Domain\Repository\ArticleCommentRepositoryInterface',
+    function () {
+        return new \Infrastructure\Repository\ArticleCommentRepository(
+            Yii::$container->get('Infrastructure\Repository\TableGateway\ArticleCommentTableGateway'),
+            Yii::$container->get('Indigerd\Hydrator\Hydrator'),
+            \Domain\Entity\ArticleComment::class
+        );
+    }
+);
