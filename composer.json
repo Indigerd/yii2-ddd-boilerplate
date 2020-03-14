@@ -35,7 +35,7 @@
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",
-    "phpunit/phpunit": "@stable"
+    "phpunit/phpunit": "<7"
   },
   "autoload": {
     "psr-4": {
