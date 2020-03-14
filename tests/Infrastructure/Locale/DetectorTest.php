@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Infrastructure\Locale;
+namespace Test\Infrastructure\Locale;
 
 use Infrastructure\Locale\Detector;
 use PHPUnit\Framework\TestCase;

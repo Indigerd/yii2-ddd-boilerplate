@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Infrastructure\Http;
+namespace Test\Infrastructure\Http;
 
 use PHPUnit\Framework\TestCase;
 use Infrastructure\Http\LinkHeader;
